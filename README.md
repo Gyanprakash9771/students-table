@@ -71,7 +71,7 @@ npm run dev
 This project is deployed using **Vercel**.
 
 Live Project Link:
-https://students-table.vercel.app
+https://students-table-git-main-gyanprakash9771s-projects.vercel.app
 
 ---
 
