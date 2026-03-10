@@ -1,16 +1,82 @@
-# React + Vite
+# Students Table CRUD Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a React.js frontend application that displays and manages a list of students.  
+All CRUD operations are handled on the frontend using React state (in-memory data).
 
-Currently, two official plugins are available:
+The application allows users to add, edit, delete, search, and export student data.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Display students in a table
+- Add new students with validation
+- Edit student details on a separate page
+- Delete students with confirmation
+- Search students by name or email
+- Simulated loading state
+- Download student data as Excel file
+- Download filtered search results as Excel file
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Technologies Used
+
+- React.js
+- Vite
+- React Router
+- XLSX (Excel export)
+- CSS
+
+---
+
+## Project Structure
+
+src
+│
+├── component
+│ ├── StudentForm.jsx
+│ └── StudentTable.jsx
+│
+├── pages
+│ └── EditStudent.jsx
+│
+├── data
+│ └── students.js
+│
+├── App.jsx
+├── App.css
+└── main.jsx
+
+---
+
+## Installation
+
+Clone the repository
+git clone https://github.com/Gyanprakash9771/students-table.git
+Navigate to project folder
+
+cd students-table
+Install dependencies
+
+npm install
+Run the project
+
+npm run dev
+
+---
+
+## Deployment
+
+This project is deployed using **Vercel**.
+
+Live Project Link:
+https://students-table.vercel.app
+
+---
+
+## Author
+
+Gyan Prakash
+
+

@@ -57,13 +57,12 @@ function App(){
 
   }
 
-  // 🔎 Filter students
   const filteredStudents = students.filter(student =>
     student.name.toLowerCase().includes(search.toLowerCase()) ||
     student.email.toLowerCase().includes(search.toLowerCase())
   )
 
-  // 📊 Download all students
+
   const downloadAllExcel = ()=>{
 
     const worksheet =
@@ -85,7 +84,6 @@ function App(){
 
   }
 
-  // 📊 Download filtered students
   const downloadFilteredExcel = ()=>{
 
     const worksheet =
