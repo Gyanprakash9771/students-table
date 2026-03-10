@@ -5,7 +5,7 @@ import StudentTable from "./component/StudentTable";
 import EditStudent from "./pages/EditStudent";
 import studentsData from "./data/students";
 import * as XLSX from "xlsx";
-import './App.css'
+import "./App.css";
 
 function App(){
 
@@ -14,11 +14,9 @@ function App(){
   const [search,setSearch] = useState("");
 
   useEffect(()=>{
-
     setTimeout(()=>{
       setLoading(false)
     },1000)
-
   },[])
 
   const addStudent = (student)=>{
@@ -39,11 +37,9 @@ function App(){
   const deleteStudent = (id)=>{
 
     if(window.confirm("Delete student?")){
-
       setStudents(
         students.filter(s=>s.id !== id)
       )
-
     }
 
   }
@@ -67,14 +63,11 @@ function App(){
     student.email.toLowerCase().includes(search.toLowerCase())
   )
 
-  // 📊 Excel export (filtered or full)
-  const downloadExcel = ()=>{
-
-    const dataToExport =
-      search ? filteredStudents : students
+  // 📊 Download all students
+  const downloadAllExcel = ()=>{
 
     const worksheet =
-      XLSX.utils.json_to_sheet(dataToExport)
+      XLSX.utils.json_to_sheet(students)
 
     const workbook =
       XLSX.utils.book_new()
@@ -87,7 +80,29 @@ function App(){
 
     XLSX.writeFile(
       workbook,
-      "students.xlsx"
+      "all_students.xlsx"
+    )
+
+  }
+
+  // 📊 Download filtered students
+  const downloadFilteredExcel = ()=>{
+
+    const worksheet =
+      XLSX.utils.json_to_sheet(filteredStudents)
+
+    const workbook =
+      XLSX.utils.book_new()
+
+    XLSX.utils.book_append_sheet(
+      workbook,
+      worksheet,
+      "Students"
+    )
+
+    XLSX.writeFile(
+      workbook,
+      "filtered_students.xlsx"
     )
 
   }
@@ -108,21 +123,31 @@ function App(){
 
 <StudentForm onAdd={addStudent}/>
 
-{/* 🔎 Search bar */}
 <input
 type="text"
 placeholder="Search student..."
 value={search}
 onChange={(e)=>setSearch(e.target.value)}
-style={{padding:"8px", marginBottom:"15px"}}
+className="search-input"
 />
+
+<div className="download-buttons">
 
 <button
 className="download-btn"
-onClick={downloadExcel}
+onClick={downloadAllExcel}
 >
-Download Excel
+Download All
 </button>
+
+<button
+className="download-btn"
+onClick={downloadFilteredExcel}
+>
+Download Filtered
+</button>
+
+</div>
 
 <StudentTable
 students={filteredStudents}
@@ -146,4 +171,4 @@ element={
 
 }
 
-export default App
+export default App;
