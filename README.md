@@ -29,7 +29,7 @@ The application allows users to add, edit, delete, search, and export student da
 - CSS
 
 ---
-
+```
 ## Project Structure
 
 src
@@ -47,7 +47,7 @@ src
 ├── App.jsx
 ├── App.css
 └── main.jsx
-
+```
 ---
 
 ## Installation
