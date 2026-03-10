@@ -1,4 +1,4 @@
-import { useState,useEffect } from "react";
+import { useState } from "react";
 import { Routes,Route } from "react-router-dom";
 import StudentForm from "./component/StudentForm";
 import StudentTable from "./component/StudentTable";
@@ -10,14 +10,7 @@ import "./App.css";
 function App(){
 
   const [students,setStudents] = useState(studentsData);
-  const [loading,setLoading] = useState(true);
   const [search,setSearch] = useState("");
-
-  useEffect(()=>{
-    setTimeout(()=>{
-      setLoading(false)
-    },1000)
-  },[])
 
   const addStudent = (student)=>{
 
@@ -62,7 +55,6 @@ function App(){
     student.email.toLowerCase().includes(search.toLowerCase())
   )
 
-
   const downloadAllExcel = ()=>{
 
     const worksheet =
@@ -103,10 +95,6 @@ function App(){
       "filtered_students.xlsx"
     )
 
-  }
-
-  if(loading){
-    return <h2>Loading students...</h2>
   }
 
   return(
